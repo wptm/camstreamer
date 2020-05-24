@@ -62,7 +62,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         picker.videoQuality = UIImagePickerController.QualityType.typeHigh
         picker.showsCameraControls = false
         
-        picker.cameraViewTransform.ty += 100;
+        //Change by wptm: instead of picker.cameraViewTransform.ty += 100;
+        //I use the following two rows. This makes full screen viewer on
+        //iPhone 11 Pro Max
+        picker.cameraViewTransform = CGAffineTransform(scaleX: 1.0, y: 1.24)
+        picker.cameraViewTransform.ty -= -85;
+
         
         present(picker, animated: true, completion: nil)
     }
